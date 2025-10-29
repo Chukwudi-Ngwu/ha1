@@ -90,5 +90,58 @@ class CalculatorTest {
 
 
     //TODO hier weitere Tests erstellen
+
+    @Test
+    @DisplayName("subtraktion")
+    void testSubtraction() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(7);
+        calc.pressBinaryOperationKey("-");
+        calc.pressDigitKey(1);
+        calc.pressEqualsKey();
+
+
+        String expected = "6";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    @DisplayName("subtraktion")
+    void testFehlerModul() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(0);
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        calc.pressDigitKey(3);
+        calc.pressUnaryOperationKey("%");
+
+
+        String expected = "0.0053";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    @DisplayName("subtraktion")
+    void testFehlerNull() {
+        Calculator calc = new Calculator();
+
+        calc.pressDotKey();
+        calc.pressEqualsKey();
+
+        String expected = "0";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
+
 }
 

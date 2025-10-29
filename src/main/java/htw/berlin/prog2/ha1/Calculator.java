@@ -76,7 +76,7 @@ public class Calculator {
         latestOperation = operation;
         var result = switch(operation) {
             case "√" -> Math.sqrt(Double.parseDouble(screen));
-            case "%" -> Double.parseDouble(screen) / 100;
+            case "%" -> Double.parseDouble(screen) / 10000;
             case "1/x" -> 1 / Double.parseDouble(screen);
             default -> throw new IllegalArgumentException();
         };
@@ -123,7 +123,9 @@ public class Calculator {
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);
             case "/" -> latestValue / Double.parseDouble(screen);
-            default -> throw new IllegalArgumentException();
+            //default -> throw new IllegalArgumentException();
+            default -> Double.parseDouble(screen);
+            // gibt bei einer nicht gesetzten Operation einfach den aktuellen Bildschirmwert zurück
         };
         screen = Double.toString(result);
         if(screen.equals("Infinity")) screen = "Error";

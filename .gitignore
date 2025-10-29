@@ -33,3 +33,6 @@ build
 
 # macOS
 .DS_Store
+
+# IntelliJ/IDEA
+.idea/

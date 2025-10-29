@@ -30,3 +30,6 @@ build
 
 # Ignore IntelliJ IDEA project files
 .idea
+
+# macOS
+.DS_Store
